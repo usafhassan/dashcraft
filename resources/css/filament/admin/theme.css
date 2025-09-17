@@ -1,0 +1,1653 @@
+@import '../../../../vendor/filament/filament/resources/css/theme.css';
+
+@source '../../../../app/Filament/**/*';
+@source '../../../../resources/views/filament/**/*';
+
+/* ============================================
+   CUSTOM ELEGANT FILAMENT THEME
+   ============================================ */
+
+/* ============================================
+   ENHANCED SIDEBAR STYLING
+   ============================================ */
+@layer components {
+    .fi-sidebar {
+        @apply bg-white dark:bg-gray-900 border-r border-gray-200 dark:border-gray-700;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fi-sidebar-nav {
+        @apply space-y-1 p-3;
+    }
+
+    .fi-sidebar-nav-item {
+        @apply relative;
+    }
+
+    .fi-sidebar-nav-item-link {
+        @apply flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 ease-out;
+        @apply text-gray-700 dark:text-gray-300;
+        @apply hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white;
+        @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:bg-gray-100 dark:focus:bg-gray-800;
+    }
+
+    .fi-sidebar-nav-item-link.fi-active {
+        @apply bg-emerald-600 text-white shadow-lg;
+        transform: translateX(2px);
+    }
+
+    .fi-sidebar-nav-item-icon {
+        @apply h-5 w-5 flex-shrink-0 transition-transform duration-200;
+    }
+
+    .fi-sidebar-nav-item-link:hover .fi-sidebar-nav-item-icon {
+        transform: scale(1.1);
+    }
+
+    .fi-sidebar-nav-item-label {
+        @apply flex-1 transition-all duration-200;
+    }
+
+    /* Sidebar Groups */
+    .fi-sidebar-group {
+        @apply mb-6;
+    }
+
+    .fi-sidebar-group-label {
+        @apply px-3 py-2 text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider;
+    }
+
+    /* Collapsed sidebar */
+    .fi-sidebar.fi-collapsed .fi-sidebar-nav-item-label {
+        @apply opacity-0 w-0;
+    }
+
+    .fi-sidebar.fi-collapsed .fi-sidebar-nav-item-link {
+        @apply justify-center px-2;
+    }
+}
+
+/* ============================================
+   ENHANCED HEADER STYLING
+   ============================================ */
+@layer components {
+    .fi-header {
+        @apply bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700 p-6;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    }
+
+    .fi-header.fi-header-has-breadcrumbs {
+        @apply pt-4 pb-6;
+    }
+
+    .fi-header-heading {
+        @apply text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl;
+    }
+
+    .fi-header-subheading {
+        @apply text-gray-600 dark:text-gray-400;
+    }
+
+    /* Header actions spacing */
+    .fi-header-actions {
+        @apply flex items-center gap-3;
+        margin-left: auto;
+        padding-left: 1rem;
+        z-index: 10 !important;
+        position: relative;
+    }
+
+    .fi-header-actions .fi-btn {
+        @apply flex-shrink-0;
+        white-space: nowrap;
+    }
+
+    /* Specific styling for create action buttons */
+    .fi-header-actions .fi-btn[data-action="create"],
+    .fi-header-actions .fi-btn.fi-color-primary {
+        @apply bg-emerald-600 text-white hover:bg-emerald-700;
+        @apply px-4 py-2 rounded-lg font-medium;
+        @apply transition-all duration-200;
+        @apply shadow-sm hover:shadow-md;
+        @apply border-0;
+        white-space: nowrap;
+    }
+
+    .fi-header-actions .fi-btn[data-action="create"]:hover,
+    .fi-header-actions .fi-btn.fi-color-primary:hover {
+        transform: translateY(-1px);
+        @apply bg-emerald-700;
+    }
+
+    /* Override any conflicting Filament button styles */
+    .fi-header-actions .fi-btn.fi-color-primary.fi-bg-color-400 {
+        @apply bg-emerald-600 text-white hover:bg-emerald-700;
+        @apply px-4 py-2 rounded-lg font-medium;
+        @apply transition-all duration-200;
+        @apply shadow-sm hover:shadow-md;
+        @apply border-0;
+        white-space: nowrap;
+    }
+
+    .fi-header-actions .fi-btn.fi-color-primary.fi-bg-color-400:hover {
+        @apply bg-emerald-700;
+        transform: translateY(-1px);
+    }
+
+    /* Ensure header actions don't overlap with user menu */
+    .fi-topbar {
+        @apply flex items-center justify-between;
+        min-height: 4rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .fi-topbar-nav {
+        @apply flex items-center gap-2;
+        margin-left: auto;
+    }
+
+    /* User menu positioning */
+    .fi-user-menu {
+        @apply relative;
+        margin-left: 1rem;
+        z-index: 9999 !important;
+    }
+
+    /* Fix dropdown shadow - exact solution */
+    .fi-dropdown.fi-user-menu {
+        box-shadow: none;
+    }
+
+    /* Fix dropdown z-index */
+    .fi-user-menu {
+        z-index: 1000 !important;
+        position: relative;
+    }
+
+    .fi-user-menu .fi-dropdown {
+        z-index: 1001 !important;
+    }
+
+    /* Fix header z-index to stay on top when scrolling */
+    .fi-header {
+        z-index: 29 !important;
+        position: relative;
+    }
+
+    header.fi-header.fi-header-has-breadcrumbs {
+        z-index: 1;
+        position: relative;
+    }
+
+    .fi-topbar {
+        z-index: 100 !important;
+        position: relative;
+    }
+
+    /* Fix overflow */
+    .fi-topbar {
+        overflow: visible !important;
+    }
+
+    /* Breadcrumbs */
+    .fi-breadcrumbs {
+        @apply mb-4;
+    }
+
+    .fi-breadcrumbs-item {
+        @apply text-sm text-gray-500 dark:text-gray-400;
+    }
+
+    .fi-breadcrumbs-item-link {
+        @apply text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200;
+    }
+
+    .fi-breadcrumbs-separator {
+        @apply text-gray-400 dark:text-gray-500 mx-2;
+    }
+
+    /* Top Navigation */
+    .fi-topbar {
+        @apply bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700;
+    }
+
+    .fi-topbar-nav {
+        @apply flex items-center space-x-1;
+    }
+
+    .fi-topbar-nav-item-link {
+        @apply relative px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200;
+        @apply text-gray-700 dark:text-gray-300;
+        @apply hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-white;
+    }
+
+    .fi-topbar-nav-item-link.fi-active {
+        @apply bg-emerald-600 text-white;
+    }
+}
+
+/* ============================================
+   ENHANCED BUTTON STYLING
+   ============================================ */
+@layer components {
+    .fi-btn {
+        @apply transition-all duration-200 ease-out;
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+        border-radius: 0.5rem;
+    }
+
+    .fi-btn-primary {
+        @apply bg-emerald-600 text-white;
+        @apply hover:bg-emerald-700;
+        @apply focus:ring-emerald-500;
+        @apply px-6 py-2.5 rounded-lg font-semibold;
+        @apply transition-all duration-200;
+        @apply shadow-sm hover:shadow-md;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    }
+
+    .fi-btn-primary:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    /* Override Filament's color classes for buttons with higher specificity */
+    .fi-btn.fi-color-primary.fi-bg-color-400 {
+        background-color: #059669 !important;
+        color: white !important;
+        padding: 0.625rem 1.5rem !important; /* px-6 py-2.5 */
+        border-radius: 0.5rem !important; /* rounded-lg */
+        font-weight: 600 !important; /* font-semibold */
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important; /* shadow-sm */
+        transition: all 0.2s ease-in-out !important;
+    }
+
+    .fi-btn.fi-color-primary.fi-bg-color-400:hover {
+        background-color: #047857 !important;
+        color: white !important;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important; /* hover:shadow-md */
+    }
+
+    .fi-btn.fi-color-primary.fi-text-color-900 {
+        color: white !important;
+        padding: 0.625rem 1.5rem !important;
+        border-radius: 0.5rem !important;
+        font-weight: 600 !important;
+    }
+
+    .fi-btn.fi-color-primary.dark.fi-text-color-0 {
+        color: white !important;
+        padding: 0.625rem 1.5rem !important;
+        border-radius: 0.5rem !important;
+        font-weight: 600 !important;
+    }
+
+    .fi-btn.fi-color-primary.dark:hover.fi-text-color-0 {
+        color: white !important;
+        padding: 0.625rem 1.5rem !important;
+        border-radius: 0.5rem !important;
+        font-weight: 600 !important;
+    }
+    
+    /* General button styling override */
+    .fi-btn {
+        padding: 0.625rem 1.5rem !important;
+        border-radius: 0.5rem !important;
+        font-weight: 600 !important;
+        transition: all 0.2s ease-in-out !important;
+    }
+    
+    /* Primary button specific styling */
+    .fi-btn[class*="primary"] {
+        background-color: #059669 !important;
+        color: white !important;
+        padding: 0.625rem 1.5rem !important;
+        border-radius: 0.5rem !important;
+        font-weight: 600 !important;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05) !important;
+    }
+    
+    .fi-btn[class*="primary"]:hover {
+        background-color: #047857 !important;
+        color: white !important;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+    }
+
+    .fi-btn-secondary {
+        @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300;
+        @apply border border-gray-300 dark:border-gray-600;
+        @apply hover:bg-gray-50 dark:hover:bg-gray-700;
+        @apply focus:ring-gray-500;
+    }
+
+    .fi-btn-danger {
+        @apply bg-red-500 text-white;
+        @apply hover:bg-red-600;
+        @apply focus:ring-red-500;
+    }
+
+    .fi-btn-success {
+        @apply bg-emerald-500 text-white;
+        @apply hover:bg-emerald-600;
+        @apply focus:ring-emerald-500;
+    }
+}
+
+/* ============================================
+   ENHANCED FORM ELEMENTS
+   ============================================ */
+@layer components {
+    .fi-input {
+        @apply transition-all duration-200 ease-out;
+        @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+        border-radius: 0.5rem;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    }
+
+    .fi-input:focus {
+        transform: translateY(-1px);
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    .fi-select {
+        @apply transition-all duration-200 ease-out;
+        @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+        border-radius: 0.5rem;
+    }
+
+    .fi-textarea {
+        @apply transition-all duration-200 ease-out;
+        @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+        border-radius: 0.5rem;
+        resize: vertical;
+    }
+
+    /* Form validation */
+    .fi-input-error {
+        @apply border-red-300 focus:border-red-500 focus:ring-red-500;
+    }
+
+    .fi-field-error-message {
+        @apply text-red-600 dark:text-red-400 text-sm mt-1;
+    }
+
+    .fi-field-help-text {
+        @apply text-gray-500 dark:text-gray-400 text-sm mt-1;
+    }
+}
+
+/* ============================================
+   ENHANCED CARD STYLING
+   ============================================ */
+@layer components {
+    .fi-section {
+        @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fi-section:hover {
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    .fi-section-header {
+        @apply border-b border-gray-200 dark:border-gray-700 p-6;
+    }
+
+    .fi-section-content {
+        @apply p-6;
+    }
+
+    .fi-section-content-ctn {
+        @apply p-6;
+    }
+}
+
+/* ============================================
+   ENHANCED TABLE STYLING
+   ============================================ */
+@layer components {
+    .fi-ta-table {
+        @apply rounded-2xl overflow-hidden border-0 w-full;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+        background: white;
+        table-layout: auto;
+        min-width: 100%;
+    }
+
+    .dark .fi-ta-table {
+        @apply bg-gray-800;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+    }
+
+    .fi-ta-header {
+        @apply bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800;
+        border-bottom: 2px solid #e5e7eb;
+    }
+
+    .dark .fi-ta-header {
+        border-bottom: 2px solid #374151;
+    }
+
+    .fi-ta-header-cell {
+        @apply font-semibold text-gray-800 dark:text-gray-200 py-4 px-6;
+        font-size: 0.875rem;
+        letter-spacing: 0.025em;
+    }
+
+    .fi-ta-row {
+        @apply transition-all duration-200 border-b border-gray-100 dark:border-gray-700;
+    }
+
+    .fi-ta-row:hover {
+        @apply bg-gray-50 dark:bg-gray-700/50;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+    }
+
+    .dark .fi-ta-row:hover {
+        box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.3);
+    }
+
+    .fi-ta-cell {
+        @apply py-4 px-4 border-0;
+        font-size: 0.875rem;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        min-width: 0;
+        max-width: none;
+    }
+
+    .fi-ta-cell:first-child {
+        @apply pl-6;
+    }
+
+    .fi-ta-cell:last-child {
+        @apply pr-6;
+    }
+
+    /* Responsive table wrapper */
+    .fi-ta-wrapper {
+        @apply overflow-x-auto max-w-full;
+    }
+
+    /* Ensure table fits container */
+    .fi-ta {
+        @apply w-full max-w-full;
+    }
+
+    /* Table container */
+    .fi-ta-container {
+        @apply w-full overflow-hidden;
+    }
+
+    /* Table text badges - make them elegant gray instead of green */
+    .fi-ta-text .fi-badge.fi-color-primary {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-500;
+        @apply px-2 py-1 rounded-full text-xs font-medium inline-block;
+        margin: 1px 2px 1px 0;
+        flex-shrink: 0;
+        width: auto !important;
+        min-width: max-content !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        position: relative;
+        z-index: 1;
+        display: inline-block !important;
+    }
+
+    /* Comprehensive badge text visibility fix */
+    .fi-ta-text .fi-badge,
+    .fi-ta-text-item .fi-badge,
+    .fi-ta-text-has-badges .fi-badge {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-500;
+        @apply px-2 py-1 rounded-full text-xs font-medium inline-block;
+        margin: 1px 2px 1px 0;
+        flex-shrink: 0;
+        width: auto !important;
+        min-width: max-content !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        position: relative;
+        z-index: 1;
+        display: inline-block !important;
+    }
+
+    /* Additional badge fixes for customer table specifically */
+    .fi-ta-cell[data-column="personas.name"] .fi-badge,
+    .fi-ta-cell[data-column="tags.name"] .fi-badge {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-500;
+        @apply px-2 py-1 rounded-full text-xs font-medium inline-block;
+        margin: 1px 2px 1px 0;
+        flex-shrink: 0;
+        width: auto !important;
+        min-width: max-content !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        position: relative;
+        z-index: 1;
+        display: inline-block !important;
+    }
+
+    /* Force all badge content to be visible - nuclear option */
+    .fi-ta-cell .fi-badge,
+    .fi-ta-cell .fi-badge *,
+    .fi-ta-cell .fi-badge span,
+    .fi-ta-cell .fi-badge div {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: max-content !important;
+        display: inline-block !important;
+    }
+
+    /* Target Filament's specific badge classes */
+    .fi-ta-text-item .fi-badge.fi-color-primary,
+    .fi-ta-text-has-badges .fi-badge.fi-color-primary,
+    .fi-ta-text .fi-badge.fi-color-primary {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-500;
+        @apply px-2 py-1 rounded-full text-xs font-medium inline-block;
+        margin: 1px 2px 1px 0;
+        flex-shrink: 0;
+        width: auto !important;
+        min-width: max-content !important;
+        max-width: none !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        position: relative;
+        z-index: 1;
+        display: inline-block !important;
+    }
+
+    /* Override any Filament truncation */
+    .fi-ta-text-item .fi-badge.fi-color-primary span,
+    .fi-ta-text-has-badges .fi-badge.fi-color-primary span,
+    .fi-ta-text .fi-badge.fi-color-primary span {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: max-content !important;
+        display: inline !important;
+    }
+
+    /* Force all badge content to be visible */
+    .fi-ta-text .fi-badge *,
+    .fi-ta-text-item .fi-badge *,
+    .fi-ta-text-has-badges .fi-badge * {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: max-content !important;
+        display: inline !important;
+    }
+    
+    /* Force badge text to be fully visible */
+    .fi-ta-text .fi-badge.fi-color-primary span,
+    .fi-ta-text .fi-badge.fi-color-primary .fi-badge-label {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: max-content !important;
+    }
+
+    /* Override any green styling on table badges */
+    .fi-ta-text-item .fi-badge.fi-color-primary {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-500;
+        @apply px-2 py-1 rounded-full text-xs font-medium inline-block;
+        margin: 1px 2px 1px 0;
+        flex-shrink: 0;
+        width: auto;
+        min-width: max-content;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: unset;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Specific styling for badges in text items */
+    .fi-ta-text-has-badges .fi-ta-text-item .fi-badge {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-500;
+        @apply px-2 py-1 rounded-full text-xs font-medium inline-block;
+        margin: 1px 2px 1px 0;
+        flex-shrink: 0;
+        width: auto;
+        min-width: max-content;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: unset;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Additional overrides for Filament's color system */
+    .fi-color-primary.fi-bg-color-400 {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-600 dark:text-gray-200 border border-gray-200 dark:border-gray-500;
+        @apply px-2 py-1 rounded-full text-xs font-medium inline-block;
+        width: auto;
+        min-width: max-content;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: unset;
+        position: relative;
+        z-index: 1;
+    }
+
+    .fi-color-primary.fi-text-color-700 {
+        @apply text-gray-700 dark:text-gray-200;
+    }
+
+    .dark .fi-color-primary.fi-text-color-300 {
+        @apply text-gray-200;
+    }
+
+    /* Override Filament's badge sizing */
+    .fi-badge.fi-size-sm {
+        @apply px-2 py-1 text-xs;
+        width: auto;
+        min-width: max-content;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: unset;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Table action buttons */
+    .fi-ta-cell .fi-btn {
+        @apply px-3 py-1.5 text-xs rounded-lg;
+    }
+
+    /* Table links */
+    .fi-ta-cell a {
+        @apply text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300;
+        @apply font-medium transition-colors duration-200;
+    }
+
+    /* Table text styling */
+    .fi-ta-text {
+        @apply space-y-1 w-full;
+        min-width: 0;
+        max-width: 100%;
+    }
+
+    .fi-ta-text-item {
+        @apply flex flex-wrap items-center gap-1;
+        width: 100%;
+        min-width: 0;
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    /* Specific styling for badge containers */
+    .fi-ta-text-has-badges {
+        @apply flex flex-wrap gap-1;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .fi-ta-text-has-badges .fi-ta-text-item {
+        @apply flex-shrink-0;
+        margin-bottom: 2px;
+    }
+
+    /* Handle long text in cells */
+    .fi-ta-cell p,
+    .fi-ta-cell div,
+    .fi-ta-cell span {
+        @apply w-full;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        min-width: 0;
+    }
+
+    /* Compact badge layout */
+    .fi-ta-text .fi-badge {
+        @apply inline-block flex-shrink-0;
+        width: auto;
+        min-width: max-content;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: unset;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Ensure badges in text items wrap properly */
+    .fi-ta-text-has-badges .fi-badge {
+        @apply inline-block flex-shrink-0;
+        width: auto;
+        min-width: max-content;
+        white-space: nowrap;
+        overflow: visible;
+        text-overflow: unset;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* Ensure table actions fit */
+    .fi-ta-cell .fi-ta-actions {
+        @apply flex flex-wrap gap-1 items-center justify-end;
+        min-width: 0;
+        width: 100%;
+    }
+
+    .fi-ta-cell .fi-ta-actions .fi-btn {
+        @apply text-xs px-2 py-1 flex-shrink-0;
+    }
+
+    /* Action column styling */
+    .fi-ta-cell.fi-ta-actions-cell {
+        @apply w-auto min-w-0;
+        white-space: nowrap;
+    }
+
+    /* Column width constraints for badge columns */
+    .fi-ta-cell.fi-ta-cell-personas,
+    .fi-ta-cell.fi-ta-cell-tags,
+    .fi-ta-cell.fi-ta-cell-classifications,
+    .fi-ta-cell[class*="persona"],
+    .fi-ta-cell[class*="tag"],
+    .fi-ta-cell[class*="classification"] {
+        max-width: 300px;
+        width: 300px;
+    }
+
+    /* General badge column detection - any cell containing badges */
+    .fi-ta-cell:has(.fi-badge) {
+        max-width: 300px;
+        width: 300px;
+    }
+
+    /* Alternative approach for browsers that don't support :has() */
+    .fi-ta-cell .fi-ta-text:has(.fi-badge) {
+        max-width: 300px;
+    }
+
+    /* Medium screens */
+    @media (max-width: 1024px) {
+        .fi-ta-cell.fi-ta-cell-personas,
+        .fi-ta-cell.fi-ta-cell-tags,
+        .fi-ta-cell.fi-ta-cell-classifications,
+        .fi-ta-cell[class*="persona"],
+        .fi-ta-cell[class*="tag"],
+        .fi-ta-cell[class*="classification"],
+        .fi-ta-cell:has(.fi-badge) {
+            max-width: 250px;
+            width: 250px;
+        }
+    }
+
+    /* Small screens */
+    @media (max-width: 768px) {
+        .fi-ta-cell.fi-ta-cell-personas,
+        .fi-ta-cell.fi-ta-cell-tags,
+        .fi-ta-cell.fi-ta-cell-classifications,
+        .fi-ta-cell[class*="persona"],
+        .fi-ta-cell[class*="tag"],
+        .fi-ta-cell[class*="classification"],
+        .fi-ta-cell:has(.fi-badge) {
+            max-width: 200px;
+            width: 200px;
+        }
+    }
+
+    /* Mobile screens */
+    @media (max-width: 640px) {
+        .fi-ta-cell.fi-ta-cell-personas,
+        .fi-ta-cell.fi-ta-cell-tags,
+        .fi-ta-cell.fi-ta-cell-classifications,
+        .fi-ta-cell[class*="persona"],
+        .fi-ta-cell[class*="tag"],
+        .fi-ta-cell[class*="classification"],
+        .fi-ta-cell:has(.fi-badge) {
+            max-width: 150px;
+            width: 150px;
+        }
+    }
+
+    /* Responsive design for smaller screens */
+    @media (max-width: 768px) {
+        .fi-ta-cell {
+            @apply px-2 py-3;
+            font-size: 0.8rem;
+        }
+
+        .fi-ta-header-cell {
+            @apply px-2 py-3;
+            font-size: 0.8rem;
+        }
+
+        .fi-ta-cell:first-child {
+            @apply pl-4;
+        }
+
+        .fi-ta-cell:last-child {
+            @apply pr-4;
+        }
+
+        .fi-ta-text .fi-badge {
+            @apply text-xs px-2 py-0.5;
+            width: auto;
+            min-width: max-content;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: unset;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fi-ta-text-has-badges .fi-badge {
+            @apply text-xs px-2 py-0.5;
+            width: auto;
+            min-width: max-content;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: unset;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fi-ta-text-item {
+            @apply gap-0.5;
+        }
+    }
+
+    @media (max-width: 640px) {
+        .fi-ta-cell {
+            @apply px-1 py-2;
+            font-size: 0.75rem;
+        }
+
+        .fi-ta-header-cell {
+            @apply px-1 py-2;
+            font-size: 0.75rem;
+        }
+
+        .fi-ta-cell:first-child {
+            @apply pl-2;
+        }
+
+        .fi-ta-cell:last-child {
+            @apply pr-2;
+        }
+
+        .fi-ta-text .fi-badge {
+            @apply text-xs px-1.5 py-0.5;
+            width: auto;
+            min-width: max-content;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: unset;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fi-ta-text-has-badges .fi-badge {
+            @apply text-xs px-1.5 py-0.5;
+            width: auto;
+            min-width: max-content;
+            white-space: nowrap;
+            overflow: visible;
+            text-overflow: unset;
+            position: relative;
+            z-index: 1;
+        }
+
+        .fi-ta-text-item {
+            @apply gap-0.5;
+        }
+
+        .fi-ta-cell .fi-ta-actions .fi-btn {
+            @apply text-xs px-1.5 py-1;
+        }
+    }
+}
+
+/* ============================================
+   ENHANCED NOTIFICATION STYLING
+   ============================================ */
+@layer components {
+    .fi-no-notification {
+        @apply rounded-xl border shadow-lg;
+        @apply bg-white dark:bg-gray-800;
+        transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .fi-no-notification:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    .fi-no-notification-success {
+        @apply border-emerald-200 dark:border-emerald-800;
+        @apply bg-emerald-50 dark:bg-emerald-900;
+    }
+
+    .fi-no-notification-danger {
+        @apply border-red-200 dark:border-red-800;
+        @apply bg-red-50 dark:bg-red-900;
+    }
+
+    .fi-no-notification-warning {
+        @apply border-amber-200 dark:border-amber-800;
+        @apply bg-amber-50 dark:bg-amber-900;
+    }
+
+    .fi-no-notification-info {
+        @apply border-blue-200 dark:border-blue-800;
+        @apply bg-blue-50 dark:bg-blue-900;
+    }
+}
+
+/* ============================================
+   CUSTOM LOGO STYLING
+   ============================================ */
+@layer components {
+    .fi-logo {
+        @apply flex items-center;
+    }
+
+    /* Style the brand name text to match welcome.blade.php */
+    .fi-brand-name {
+        @apply text-2xl font-bold text-slate-900 dark:text-white;
+        position: relative;
+    }
+    
+    /* Hide the original text and replace with styled version */
+    .fi-brand-name {
+        color: transparent !important;
+    }
+    
+    /* Create the "Dash" part */
+    .fi-brand-name::before {
+        content: "Dash";
+        @apply text-slate-900 dark:text-white;
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    
+    /* Create the "Craft" part in signature green */
+    .fi-brand-name::after {
+        content: "Craft";
+        @apply text-emerald-600 dark:text-emerald-400;
+        position: absolute;
+        left: 3.5rem; /* Adjust based on "Dash" width */
+        top: 0;
+    }
+}
+
+/* ============================================
+   COMPREHENSIVE ICON STYLING
+   ============================================ */
+@layer components {
+    /* All Filament icons */
+    .fi-icon {
+        @apply transition-colors duration-200;
+    }
+
+    /* Primary icons */
+    .fi-icon.fi-color-primary {
+        @apply text-primary-500 dark:text-primary-400;
+    }
+
+    /* Success icons */
+    .fi-icon.fi-color-success {
+        @apply text-emerald-500 dark:text-emerald-400;
+    }
+
+    /* Warning icons */
+    .fi-icon.fi-color-warning {
+        @apply text-amber-500 dark:text-amber-400;
+    }
+
+    /* Danger icons */
+    .fi-icon.fi-color-danger {
+        @apply text-red-500 dark:text-red-400;
+    }
+
+    /* Info icons */
+    .fi-icon.fi-color-info {
+        @apply text-blue-500 dark:text-blue-400;
+    }
+
+    /* Gray icons */
+    .fi-icon.fi-color-gray {
+        @apply text-gray-500 dark:text-gray-400;
+    }
+
+    /* Icon sizes */
+    .fi-icon.fi-size-xs {
+        @apply h-3 w-3;
+    }
+
+    .fi-icon.fi-size-sm {
+        @apply h-4 w-4;
+    }
+
+    .fi-icon.fi-size-md {
+        @apply h-5 w-5;
+    }
+
+    .fi-icon.fi-size-lg {
+        @apply h-6 w-6;
+    }
+
+    .fi-icon.fi-size-xl {
+        @apply h-8 w-8;
+    }
+}
+
+/* ============================================
+   ENHANCED MODAL & DROPDOWN STYLING
+   ============================================ */
+@layer components {
+    .fi-modal {
+        @apply bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700;
+        box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    .fi-modal-header {
+        @apply border-b border-gray-200 dark:border-gray-700 p-6;
+    }
+
+    .fi-modal-content {
+        @apply p-6;
+    }
+
+    .fi-modal-footer {
+        @apply border-t border-gray-200 dark:border-gray-700 p-6;
+    }
+
+    .fi-dropdown {
+        @apply bg-white dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700;
+        box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    .fi-dropdown-item {
+        @apply px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-150;
+    }
+
+    .fi-dropdown-item.fi-active {
+        @apply bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-white;
+    }
+}
+
+/* ============================================
+   ENHANCED BADGE & STATUS STYLING
+   ============================================ */
+@layer components {
+    .fi-badge {
+        @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+    }
+
+    .fi-badge.fi-color-primary {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600;
+        min-width: max-content;
+        text-overflow: unset;
+        overflow: visible;
+    }
+
+    .fi-badge.fi-color-success {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600;
+        min-width: max-content;
+        text-overflow: unset;
+        overflow: visible;
+    }
+
+    .fi-badge.fi-color-warning {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600;
+        min-width: max-content;
+        text-overflow: unset;
+        overflow: visible;
+    }
+
+    .fi-badge.fi-color-danger {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600;
+        min-width: max-content;
+        text-overflow: unset;
+        overflow: visible;
+    }
+
+    .fi-badge.fi-color-info {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600;
+        min-width: max-content;
+        text-overflow: unset;
+        overflow: visible;
+    }
+
+    .fi-badge.fi-color-gray {
+        @apply bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-600;
+        min-width: max-content;
+        text-overflow: unset;
+        overflow: visible;
+    }
+    
+    /* Force all badge text content to be visible - comprehensive override */
+    .fi-badge span,
+    .fi-badge .fi-badge-label,
+    .fi-badge .fi-badge-text,
+    .fi-badge div,
+    .fi-badge p {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: max-content !important;
+        display: inline !important;
+    }
+    
+    /* Additional override for table badges specifically */
+    .fi-ta-text .fi-badge,
+    .fi-ta-text-item .fi-badge,
+    .fi-ta-text-has-badges .fi-badge {
+        width: auto !important;
+        max-width: none !important;
+        min-width: max-content !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        display: inline-block !important;
+    }
+    
+    /* Nuclear option - override any potential truncation */
+    .fi-ta-cell *[class*="badge"],
+    .fi-ta-cell .fi-badge,
+    .fi-ta-cell span[class*="badge"] {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: max-content !important;
+    }
+    
+    /* Target specific badge text elements */
+    .fi-ta-cell .fi-badge > *,
+    .fi-ta-cell .fi-badge span,
+    .fi-ta-cell .fi-badge div {
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+        width: auto !important;
+        max-width: none !important;
+        min-width: max-content !important;
+    }
+    
+    /* Override any potential table cell constraints */
+    .fi-ta-cell {
+        overflow: visible !important;
+    }
+    
+    .fi-ta-cell * {
+        max-width: none !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+    }
+    
+    /* Specific targeting for badge containers */
+    .fi-ta-cell .fi-ta-text,
+    .fi-ta-cell .fi-ta-text-item,
+    .fi-ta-cell .fi-ta-text-has-badges {
+        overflow: visible !important;
+        max-width: none !important;
+    }
+    
+    .fi-ta-cell .fi-ta-text *,
+    .fi-ta-cell .fi-ta-text-item *,
+    .fi-ta-cell .fi-ta-text-has-badges * {
+        max-width: none !important;
+        white-space: nowrap !important;
+        overflow: visible !important;
+        text-overflow: unset !important;
+    }
+}
+
+/* ============================================
+   EXPANDED LAYOUT STYLING
+   ============================================ */
+@layer components {
+    /* Expand main content area to use more space */
+    .fi-main {
+        @apply max-w-none;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Expand page content */
+    .fi-page {
+        @apply max-w-none;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Expand sections to use more width */
+    .fi-section {
+        @apply max-w-none;
+    }
+    
+    /* Expand content areas */
+    .fi-section-content,
+    .fi-section-content-ctn {
+        @apply max-w-none;
+    }
+    
+    /* Expand table containers */
+    .fi-ta-container {
+        @apply max-w-none;
+    }
+    
+    /* Expand table wrapper */
+    .fi-ta-wrapper {
+        @apply max-w-none;
+    }
+    
+    /* Responsive padding for different screen sizes */
+    @media (min-width: 1280px) {
+        .fi-main,
+        .fi-page {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+    }
+    
+    @media (min-width: 1536px) {
+        .fi-main,
+        .fi-page {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
+    }
+    
+    /* Ensure tables use available space */
+    .fi-ta-table {
+        @apply w-full max-w-none;
+    }
+}
+
+/* ============================================
+   ENHANCED TABS STYLING
+   ============================================ */
+@layer components {
+    .fi-tabs {
+        @apply border-b border-gray-200 dark:border-gray-700;
+    }
+
+    .fi-tabs-item {
+        @apply px-4 py-2 text-sm font-medium text-gray-500 dark:text-gray-400;
+        @apply hover:text-gray-700 dark:hover:text-gray-300 transition-colors duration-200;
+        @apply border-b-2 border-transparent;
+    }
+
+    .fi-tabs-item.fi-active {
+        @apply text-primary-600 dark:text-primary-400 border-primary-500 dark:border-primary-400;
+    }
+
+    .fi-tabs-content {
+        @apply mt-6;
+    }
+}
+
+/* ============================================
+   ENHANCED PAGINATION STYLING
+   ============================================ */
+@layer components {
+    .fi-pagination {
+        @apply flex items-center justify-center gap-2 py-6;
+    }
+
+    .fi-pagination-item {
+        @apply px-3 py-2 text-sm font-medium transition-all duration-200;
+        @apply border border-gray-200 dark:border-gray-600 rounded-lg;
+        @apply hover:border-gray-300 dark:hover:border-gray-500;
+        @apply focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
+    }
+
+    .fi-pagination-item.fi-active {
+        @apply bg-emerald-600 text-white border-emerald-600 shadow-lg;
+        transform: translateY(-1px);
+    }
+
+    .fi-pagination-item:hover:not(.fi-active) {
+        @apply bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+    }
+
+    .fi-pagination-item-btn {
+        @apply w-full h-full flex items-center justify-center;
+    }
+
+    .fi-pagination-item-label {
+        @apply font-medium;
+    }
+
+    /* Pagination navigation arrows */
+    .fi-pagination-item[aria-label*="Previous"],
+    .fi-pagination-item[aria-label*="Next"] {
+        @apply px-4 py-2;
+    }
+
+    /* Disabled pagination items */
+    .fi-pagination-item:disabled {
+        @apply opacity-50 cursor-not-allowed;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .fi-pagination-item:disabled:hover {
+        @apply bg-transparent border-gray-200 dark:border-gray-600;
+    }
+
+    /* Target Filament's specific pagination classes */
+    .fi-ta-pagination {
+        @apply flex items-center justify-center gap-2 py-6;
+    }
+
+    .fi-ta-pagination .fi-pagination-item {
+        @apply px-3 py-2 text-sm font-medium transition-all duration-200;
+        @apply border border-gray-200 dark:border-gray-600 rounded-lg;
+        @apply hover:border-gray-300 dark:hover:border-gray-500;
+        @apply focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2;
+    }
+
+    .fi-ta-pagination .fi-pagination-item.fi-active {
+        @apply bg-emerald-600 text-white border-emerald-600 shadow-lg;
+        transform: translateY(-1px);
+    }
+
+    .fi-ta-pagination .fi-pagination-item:hover:not(.fi-active) {
+        @apply bg-gray-50 dark:bg-gray-700 text-gray-700 dark:text-gray-300;
+        transform: translateY(-1px);
+        box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.1);
+    }
+}
+
+/* ============================================
+   ENHANCED SEARCH & FILTER STYLING
+   ============================================ */
+@layer components {
+    .fi-search {
+        @apply relative;
+    }
+
+    .fi-search-input {
+        @apply w-full pl-10 pr-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg;
+        @apply bg-white dark:bg-gray-800 text-gray-900 dark:text-white;
+        @apply focus:ring-2 focus:ring-primary-500 focus:border-primary-500;
+        @apply transition-all duration-200;
+    }
+
+    .fi-search-icon {
+        @apply absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400;
+    }
+
+    .fi-filter {
+        @apply inline-flex items-center px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg;
+        @apply bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300;
+        @apply hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200;
+    }
+
+    .fi-filter-active {
+        @apply bg-gray-100 text-gray-900 dark:bg-gray-700 dark:text-white;
+        @apply border-gray-300 dark:border-gray-600;
+    }
+}
+
+/* ============================================
+   ENHANCED USER MENU STYLING
+   ============================================ */
+@layer components {
+    .fi-user-menu {
+        @apply relative;
+    }
+
+    .fi-user-menu-trigger {
+        @apply flex items-center space-x-3 p-2 rounded-lg;
+        @apply hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200;
+    }
+
+    .fi-user-menu-avatar {
+        @apply h-8 w-8 rounded-full bg-primary-500 text-white flex items-center justify-center;
+        @apply font-medium text-sm;
+    }
+
+    .fi-user-menu-name {
+        @apply text-sm font-medium text-gray-900 dark:text-white;
+    }
+
+    .fi-user-menu-email {
+        @apply text-xs text-gray-500 dark:text-gray-400;
+    }
+}
+
+/* ============================================
+   ENHANCED LOADING & SPINNER STYLING
+   ============================================ */
+@layer components {
+    .fi-spinner {
+        @apply animate-spin h-5 w-5 text-primary-500;
+    }
+
+    .fi-loading {
+        @apply flex items-center justify-center p-8;
+    }
+
+    .fi-loading-text {
+        @apply ml-2 text-sm text-gray-500 dark:text-gray-400;
+    }
+
+    .fi-skeleton {
+        @apply animate-pulse bg-gray-200 dark:bg-gray-700 rounded;
+    }
+}
+
+/* ============================================
+   PRODUCTION-READY ENHANCEMENTS
+   ============================================ */
+@layer components {
+    /* Ensure consistent spacing and layout */
+    .fi-main-content {
+        @apply min-h-screen;
+    }
+
+    /* Improve form field spacing */
+    .fi-field {
+        @apply mb-4;
+    }
+
+    .fi-field-label {
+        @apply mb-2 font-medium text-gray-700 dark:text-gray-300;
+    }
+
+    /* Better error states */
+    .fi-field-error {
+        @apply border-red-300 bg-red-50 dark:bg-red-900/20;
+    }
+
+    .fi-field-error .fi-input {
+        @apply border-red-300 focus:border-red-500 focus:ring-red-500;
+    }
+
+    /* Success states */
+    .fi-field-success {
+        @apply border-green-300 bg-green-50 dark:bg-green-900/20;
+    }
+
+    .fi-field-success .fi-input {
+        @apply border-green-300 focus:border-green-500 focus:ring-green-500;
+    }
+
+    /* Improved focus states */
+    .fi-input:focus,
+    .fi-select:focus,
+    .fi-textarea:focus {
+        @apply ring-2 ring-emerald-500 ring-offset-2;
+        outline: none;
+    }
+
+    /* Better button states */
+    .fi-btn:disabled {
+        @apply opacity-50 cursor-not-allowed;
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    .fi-btn:disabled:hover {
+        transform: none !important;
+        box-shadow: none !important;
+    }
+
+    /* Improved table responsiveness */
+    @media (max-width: 1024px) {
+        .fi-ta-table {
+            font-size: 0.875rem;
+        }
+        
+        .fi-ta-header-cell,
+        .fi-ta-cell {
+            @apply px-3 py-3;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .fi-ta-table {
+            font-size: 0.8rem;
+        }
+        
+        .fi-ta-header-cell,
+        .fi-ta-cell {
+            @apply px-2 py-2;
+        }
+        
+        .fi-ta-cell:first-child {
+            @apply pl-3;
+        }
+        
+        .fi-ta-cell:last-child {
+            @apply pr-3;
+        }
+    }
+
+    /* Mobile navigation improvements */
+    @media (max-width: 768px) {
+        .fi-sidebar {
+            @apply w-64;
+        }
+        
+        .fi-header {
+            @apply p-4;
+        }
+        
+        .fi-header-heading {
+            @apply text-xl;
+        }
+    }
+
+    /* Print styles */
+    @media print {
+        .fi-sidebar,
+        .fi-topbar,
+        .fi-header-actions,
+        .fi-ta-actions {
+            @apply hidden;
+        }
+        
+        .fi-main {
+            @apply p-0;
+        }
+        
+        .fi-section {
+            @apply border-0 shadow-none;
+        }
+    }
+
+    /* High contrast mode support */
+    @media (prefers-contrast: high) {
+        .fi-btn-primary {
+            @apply border-2 border-black;
+        }
+        
+        .fi-input,
+        .fi-select,
+        .fi-textarea {
+            @apply border-2;
+        }
+    }
+
+    /* Reduced motion support */
+    @media (prefers-reduced-motion: reduce) {
+        .fi-btn,
+        .fi-input,
+        .fi-select,
+        .fi-textarea,
+        .fi-ta-row,
+        .fi-section {
+            transition: none !important;
+            transform: none !important;
+        }
+        
+        .fi-spinner {
+            animation: none !important;
+        }
+    }
+
+    /* Dark mode improvements */
+    .dark .fi-section {
+        @apply bg-gray-800 border-gray-700;
+    }
+
+    .dark .fi-input,
+    .dark .fi-select,
+    .dark .fi-textarea {
+        @apply bg-gray-800 border-gray-600 text-white;
+    }
+
+    .dark .fi-input:focus,
+    .dark .fi-select:focus,
+    .dark .fi-textarea:focus {
+        @apply border-emerald-400 ring-emerald-400;
+    }
+
+    /* Accessibility improvements */
+    .fi-btn:focus-visible,
+    .fi-input:focus-visible,
+    .fi-select:focus-visible,
+    .fi-textarea:focus-visible {
+        @apply ring-2 ring-emerald-500 ring-offset-2;
+        outline: none;
+    }
+
+    /* Screen reader only text */
+    .fi-sr-only {
+        @apply sr-only;
+    }
+
+    /* Skip to content link */
+    .fi-skip-link {
+        @apply absolute top-0 left-0 bg-emerald-600 text-white px-4 py-2 rounded-br-lg;
+        @apply transform -translate-y-full focus:translate-y-0 transition-transform;
+        z-index: 1000;
+    }
+}
