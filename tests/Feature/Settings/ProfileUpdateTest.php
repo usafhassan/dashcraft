@@ -58,7 +58,10 @@ test('user can delete their account', function () {
         ->assertHasNoErrors()
         ->assertRedirect('/');
 
-    expect($user->fresh())->toBeNull();
+    // Check that user is soft deleted (has deleted_at timestamp)
+    $freshUser = $user->fresh();
+    expect($freshUser)->not->toBeNull();
+    expect($freshUser->deleted_at)->not->toBeNull();
     expect(auth()->check())->toBeFalse();
 });
 
