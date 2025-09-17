@@ -21,7 +21,7 @@ This project serves as a **comprehensive showcase of advanced Filament developme
 
 <div align="center">
   <h3>🎨 Professional Landing Page</h3>
-  <img src="public/dashcraft-landing.png.png" alt="DashCraft Landing Page - Filament Expertise Showcase" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); margin-bottom: 20px;">
+  <img src="public/dashcraft-landing.png" alt="DashCraft Landing Page - Filament Expertise Showcase" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); margin-bottom: 20px;">
   <p><em>Modern, professional landing page showcasing Filament development capabilities</em></p>
   
   <h3>📊 Advanced Filament Dashboard</h3>
@@ -104,7 +104,7 @@ This project serves as a **comprehensive showcase of advanced Filament developme
 4. **Database setup with demo data**
    ```bash
    php artisan migrate
-   php artisan db:seed --class=DemoDataSeeder
+   php artisan db:seed
    ```
 
 5. **Build assets**
@@ -179,13 +179,13 @@ DashCraft demonstrates production-ready Filament deployment with comprehensive c
 1. **Environment Configuration**
    ```bash
    cp .env.example .env
-   # Configure production settings (see DEPLOYMENT.md)
+   # Configure production settings
    ```
 
 2. **Database & Assets**
    ```bash
    php artisan migrate --force
-   php artisan db:seed --class=DemoDataSeeder
+   php artisan db:seed
    npm run build
    php artisan optimize
    ```
@@ -200,18 +200,7 @@ DashCraft demonstrates production-ready Filament deployment with comprehensive c
 
 ### 📖 Complete Deployment Guide
 
-For detailed production deployment instructions, server configurations, security settings, and monitoring setup, see our comprehensive **[DEPLOYMENT.md](DEPLOYMENT.md)** guide.
-
-### 🐳 Docker Deployment
-
-```bash
-# Build and run with Docker Compose
-docker-compose up -d
-
-# Or build manually
-docker build -t dashcraft .
-docker run -p 8000:8000 dashcraft
-```
+For detailed production deployment instructions, server configurations, security settings, and monitoring setup, refer to Laravel's official deployment documentation and best practices for Filament applications.
 
 ## 📝 License
 

@@ -1,9 +1,9 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/livewire-starter-kit",
+    "name": "usafhassan/dashcraft",
     "type": "project",
-    "description": "The official Laravel starter kit for Livewire.",
-    "keywords": ["laravel", "framework"],
+    "description": "DashCraft - Advanced Filament Development Showcase",
+    "keywords": ["laravel", "filament", "admin-panel", "dashboard", "showcase"],
     "license": "MIT",
     "require": {
         "php": "^8.2",
