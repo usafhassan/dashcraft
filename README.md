@@ -18,20 +18,18 @@ This project serves as a **comprehensive showcase of advanced Filament developme
 
 **Built with Laravel 12, Filament 4, and Livewire** - showcasing the latest features and best practices in modern PHP admin panel development.
 
-## 🖼️ **Live Demo Screenshots**
+## 📸 **Filament Admin Screenshots**
 
 <div align="center">
-  <img src="public/dashcraft-landing.png.png" alt="DashCraft Landing Page" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1);">
-  
-  <br><br>
+  <img src="public/dashcraft-landing.png.png" alt="DashCraft Landing Page - Filament Expertise Showcase" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); margin-bottom: 20px;">
   
   <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
     <div style="text-align: center;">
-      <img src="public/dashcraft-admin-dash.png" alt="Filament Dashboard" width="400" style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+      <img src="public/dashcraft-admin-dash.png" alt="DashCraft Filament Admin Dashboard" width="400" style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
       <p><strong>📊 Advanced Dashboard</strong><br>Real-time widgets & analytics</p>
     </div>
     <div style="text-align: center;">
-      <img src="public/dashcraft-admin-personas.png" alt="Filament Resources" width="400" style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
+      <img src="public/dashcraft-admin-personas.png" alt="DashCraft Customer Management with Personas" width="400" style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
       <p><strong>👥 Custom Resources</strong><br>Complex relationships & forms</p>
     </div>
   </div>
@@ -89,7 +87,7 @@ This project serves as a **comprehensive showcase of advanced Filament developme
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/dashcraft.git
+   git clone https://github.com/usafhassan/dashcraft.git
    cd dashcraft
    ```
 
@@ -131,104 +129,48 @@ After seeding, you can access the application with these demo accounts:
 
 Visit `http://localhost:8000` for the welcome page or `http://localhost:8000/admin` for the admin panel.
 
-## 📸 **Filament Admin Screenshots**
+## 🎯 **Key Filament Features**
 
-<div align="center">
-  <h3>🎨 Professional Landing Page</h3>
-  <img src="public/dashcraft-landing.png.png" alt="DashCraft Landing Page - Filament Expertise Showcase" width="800" height="400">
-  <p><em>Modern, professional landing page showcasing Filament development capabilities</em></p>
-  
-  <h3>📊 Advanced Filament Dashboard</h3>
-  <img src="public/dashcraft-admin-dash.png" alt="DashCraft Filament Admin Dashboard" width="800" height="400">
-  <p><em>Sophisticated Filament admin dashboard with custom widgets and real-time analytics</em></p>
-  
-  <h3>👥 Customer Management Resources</h3>
-  <img src="public/dashcraft-admin-personas.png" alt="DashCraft Customer Management with Personas" width="800" height="400">
-  <p><em>Advanced Filament resources with complex relationships and custom form schemas</em></p>
-</div>
+### **Advanced Resources & Relationships**
+- Sophisticated Customer, Persona, Tag, and User resources with complex many-to-many relationships
+- Custom form schemas with conditional fields and advanced validation
+- Bulk operations and mass actions with custom business logic
 
-## 🎯 **Filament Expertise Highlights**
+### **Dashboard & Analytics**
+- Real-time dashboard widgets with live data and interactive charts
+- Custom KPI widgets and business intelligence components
+- Responsive admin interface optimized for all devices
 
-### 1. **Advanced Filament Resources**
-- **🏗️ Custom Resource Architecture**: Sophisticated Customer, Persona, Tag, and User resources
-- **📊 Complex Relationships**: Many-to-many relationships with pivot table configurations
-- **🔍 Advanced Filtering**: Custom filters, search, and sorting capabilities
-- **⚡ Bulk Operations**: Mass actions with custom business logic integration
+### **Security & Permissions**
+- Filament Shield integration with role-based access control
+- Granular permissions for resources and actions
+- Complete user management with role assignment
 
-### 2. **Filament Dashboard & Widgets**
-- **📈 Real-time Analytics**: Live dashboard widgets with dynamic data
-- **📊 Interactive Charts**: Custom chart components with Filament integration
-- **🎯 KPI Widgets**: Business intelligence widgets with real-time updates
-- **📱 Responsive Dashboard**: Mobile-optimized admin interface
-
-### 3. **Filament Forms & Validation**
-- **🎨 Custom Form Schemas**: Multi-step forms with conditional logic
-- **✅ Advanced Validation**: Complex validation rules and custom validators
-- **🔄 Dynamic Fields**: Conditional field rendering based on user input
-- **💾 Auto-save Functionality**: Real-time form data persistence
-
-### 4. **Filament Security & Permissions**
-- **🔐 Filament Shield Integration**: Role-based access control
-- **👥 User Management**: Complete user administration with role assignment
-- **🛡️ Resource Permissions**: Granular permissions for each resource
-- **🔒 Secure Actions**: Protected operations with permission checks
-
-## 📊 **Filament-Optimized Database Schema**
-
-The application demonstrates advanced database design optimized for Filament admin panels:
-
-- **👥 Users**: Authentication with Filament Shield role management
-- **📊 Customers**: Core entity with complex Filament resource relationships
-- **🎭 Personas**: Customer segmentation with Filament form schemas
-- **🏷️ Tags**: Flexible tagging system with Filament table configurations
-- **🔗 Pivot Tables**: Many-to-many relationships optimized for Filament displays
-
-## 🧪 **Filament Testing Strategy**
-
-The project demonstrates professional testing practices for Filament applications:
+## 🧪 **Testing & Quality**
 
 ```bash
 # Run all tests
 php artisan test
 
-# Run Filament-specific tests
+# Run specific test suites
 php artisan test --filter=DashboardTest
 php artisan test --filter=AuthenticationTest
-
-# Test Filament resources
-php artisan test --filter=CustomerTest
 ```
 
-## 📈 **Filament Performance Optimizations**
+## 📈 **Performance & Optimization**
 
-- **🚀 Database Indexing**: Optimized queries for Filament table performance
-- **⚡ Eager Loading**: N+1 query prevention in Filament resources
-- **💾 Caching Strategy**: Strategic caching for Filament dashboard widgets
-- **📦 Asset Optimization**: Minified CSS/JS with Vite bundling for Filament
-- **🎨 Theme Optimization**: Optimized custom Filament theme performance
+- Database indexing optimized for Filament table performance
+- Eager loading to prevent N+1 queries in Filament resources
+- Strategic caching for dashboard widgets
+- Minified CSS/JS with Vite bundling
+- Custom Filament theme optimization
 
-## 🔧 **Filament Development Environment**
+## 🎨 **Design & Responsiveness**
 
-- **⚡ Hot Reload**: Vite development server with Filament hot module replacement
-- **📏 Code Quality**: Laravel Pint for Filament code formatting standards
-- **🔍 Static Analysis**: PHPStan for Filament type checking
-- **🪝 Git Hooks**: Pre-commit hooks for Filament code quality
-- **🐳 Docker Support**: Containerized Filament development environment
-
-## 📱 **Filament Responsive Design**
-
-The Filament admin panel is fully responsive and optimized for:
-- **🖥️ Desktop** (1024px+) - Full Filament feature set
-- **📱 Tablet** (768px - 1023px) - Optimized Filament layout
-- **📱 Mobile** (320px - 767px) - Touch-friendly Filament interface
-
-## 🎨 **Custom Filament Design System**
-
-Built with a sophisticated design system for Filament:
-- **🎨 Color Palette**: Professional gradients optimized for Filament themes
-- **📝 Typography**: Inter font family for modern Filament readability
-- **📏 Spacing**: Consistent 8px grid system for Filament layouts
-- **🧩 Components**: Reusable Filament UI components with Tailwind CSS
+- Custom Filament theme with professional color palette
+- Fully responsive design (Desktop, Tablet, Mobile)
+- Modern typography with Inter font family
+- Consistent 8px grid system and reusable components
 
 ## 🚀 **Filament Production Deployment**
 
