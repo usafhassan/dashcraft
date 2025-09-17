@@ -8,7 +8,6 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
 <div align="center">
-  <img src="https://via.placeholder.com/800x400/3b82f6/ffffff?text=DashCraft+Filament+Showcase" alt="DashCraft Filament Showcase" width="800" height="400">
   <p><em>🚀 A comprehensive demonstration of advanced Filament development skills</em></p>
 </div>
 
