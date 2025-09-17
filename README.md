@@ -20,18 +20,17 @@ This project serves as a **comprehensive showcase of advanced Filament developme
 ## 📸 **Filament Admin Screenshots**
 
 <div align="center">
+  <h3>🎨 Professional Landing Page</h3>
   <img src="public/dashcraft-landing.png.png" alt="DashCraft Landing Page - Filament Expertise Showcase" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); margin-bottom: 20px;">
+  <p><em>Modern, professional landing page showcasing Filament development capabilities</em></p>
   
-  <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
-    <div style="text-align: center;">
-      <img src="public/dashcraft-admin-dash.png" alt="DashCraft Filament Admin Dashboard" width="400" style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-      <p><strong>📊 Advanced Dashboard</strong><br>Real-time widgets & analytics</p>
-    </div>
-    <div style="text-align: center;">
-      <img src="public/dashcraft-admin-personas.png" alt="DashCraft Customer Management with Personas" width="400" style="border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">
-      <p><strong>👥 Custom Resources</strong><br>Complex relationships & forms</p>
-    </div>
-  </div>
+  <h3>📊 Advanced Filament Dashboard</h3>
+  <img src="public/dashcraft-admin-dash.png" alt="DashCraft Filament Admin Dashboard" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); margin-bottom: 20px;">
+  <p><em>Sophisticated Filament admin dashboard with custom widgets and real-time analytics</em></p>
+  
+  <h3>👥 Customer Management Resources</h3>
+  <img src="public/dashcraft-admin-personas.png" alt="DashCraft Customer Management with Personas" width="100%" style="border-radius: 12px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); margin-bottom: 20px;">
+  <p><em>Advanced Filament resources with complex relationships and custom form schemas</em></p>
 </div>
 
 ## 🚀 **Filament Skills Demonstrated**
